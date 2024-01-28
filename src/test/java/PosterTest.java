@@ -102,4 +102,20 @@ import org.junit.jupiter.api.Test;
 
             Assertions.assertArrayEquals(expected, actual);
         }
+
+        @Test
+        public void shouldEquallyLimitMovies() {
+            MoviePosterManager poster = new MoviePosterManager(5);
+
+            poster.addMovie(title1);
+            poster.addMovie(title3);
+            poster.addMovie(title4);
+            poster.addMovie(title6);
+            poster.addMovie(title7);
+
+            Movie[] expected = {title7, title6, title4, title3, title1};
+            Movie[] actual = poster.findLast();
+
+            Assertions.assertArrayEquals(expected, actual);
+        }
     }
